@@ -1,21 +1,25 @@
-# Route101 Insurance AI Demo
+# Route101 Insurance AI: Henry-James Premium Demo
 
-A self-contained static demo website, ready for GitHub Pages.
+A premium static demonstration site with separate home, voice-agent and chat-demo pages. No build tools or package installation are required.
 
-## Add your agent links
+## Connect the agents
 
 Open `app.js` and replace:
 
 - `PASTE_VOICE_AGENT_URL_HERE`
 - `PASTE_CHAT_DEMO_URL_HERE`
 
-Leave `embedVoice` and `embedChat` as `false` to launch agents in a new tab. Set either to `true` only when the relevant agent platform permits iframe embedding.
+Keep `embed: false` to open an agent in a new tab. Change it to `true` only when the agent platform explicitly allows iframe embedding.
 
-## Publish with GitHub Pages
+## Publish on GitHub Pages
 
-1. Upload all files in this project to the root of your repository.
-2. In the repository, open **Settings > Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select your main branch and the root folder, then save.
+Upload every file in this ZIP to the root of the repository. In repository settings, enable GitHub Pages from the main branch and root folder.
 
-The site uses plain HTML, CSS and JavaScript, so there is no build step.
+## Included
+
+- `index.html`
+- `voice.html`
+- `chat.html`
+- `styles.css`
+- `app.js`
+- `henry-james-avatar.png`
