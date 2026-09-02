@@ -4,8 +4,9 @@
     "firstName": "Agam",
     "lastName": "Kohli",
     "email": "agam.kohli@route101.com",
-    "phone": "07557486414",
+    "phoneNumber": "07557486414",
     "address": "1 London Road, London",
+	"postcode": "ab12 3cd",
     "policyNumber": "AK123456",
     "policyType": "Home",
     "renewalDate": "2028-01-13"
@@ -15,8 +16,9 @@
     "firstName": "Sarah",
     "lastName": "Jones",
     "email": "sarah.jones@test.com",
-    "phone": "01234567890",
+    "phoneNumber": "01234567890",
     "address": "23 High Street, Bristol",
+	"postcode": "ab12 3cd",
     "policyNumber": "SJ123456",
     "policyType": "Car & Home",
     "renewalDate": "2027-03-01"
@@ -24,10 +26,11 @@
   {
     "customerId": "CUST003",
     "firstName": "Ben",
-    "lastName": "Smith",
-    "email": "ben.smith@route101.com",
-    "phone": "9876543210",
+    "lastName": "W",
+    "email": "ben.willmott@route101.com",
+    "phoneNumber": "9876543210",
     "address": "21 High Street, London l",
+	"postcode": "ab12 3cd",
     "policyNumber": "BS123456",
     "policyType": "Car",
     "renewalDate": "2027-06-01"
