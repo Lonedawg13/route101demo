@@ -4,5 +4,17 @@
     "insuranceType": "Home",
     "premium": "£645.00",
     "excess": "£250"
+  },
+  {
+    "quoteId": "QT002",
+    "insuranceType": "Motor",
+    "premium": "£895.00",
+    "excess": "£350"
+  },
+  {
+    "quoteId": "QT003",
+    "insuranceType": "Pet",
+    "premium": "£180.00",
+    "excess": "£100"
   }
 ]
