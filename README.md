@@ -1,14 +1,5 @@
-# Route101 Insurance AI: Henry-James Demo
+# Route101 Insurance AI demo
 
-Static GitHub Pages demonstration site with a Cognigy Webchat v3 experience embedded on `chat.html`.
+Upload all files in this package to the repository root, replacing the existing versions. Keep `henry-james-avatar.png` in the same location.
 
-## Upload
-Upload these files to the repository root:
-- index.html
-- chat.html
-- voice.html
-- styles.css
-- app.js
-- henry-james-avatar.png (retain your existing image file)
-
-The Cognigy chat endpoint is already configured in `app.js`. The voice placeholder remains unchanged until a voice endpoint is available.
+The Cognigy Webchat v3 integration is loaded only on `chat.html` and uses the configured endpoint. The previous iframe and empty experience panels have been removed. `voice.html` now uses a complete presentation layout with no empty integration panel.
