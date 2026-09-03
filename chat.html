@@ -85,7 +85,7 @@
 
 <script>
 initWebchat(
- "https://endpoint-trial.cognigy.ai/45eb8cc95901b9fed5ad94b3d3606852cf27db153ea485f7bff385759d2a6ae8"
+    "https://endpoint-trial.cognigy.ai/45eb8cc95901b9fed5ad94b3d3606852cf27db153ea485f7bff385759d2a6ae8"
 );
 
 setTimeout(() => {
@@ -94,14 +94,21 @@ setTimeout(() => {
 
     style.innerHTML = `
 
-        .iconAnimationContainer{
-            width:60px !important;
-            height:60px !important;
+        .webchat-toggle-button{
+            width:110px !important;
+            height:110px !important;
+            box-shadow:
+                0 0 0 16px rgba(237,23,123,.25),
+                0 25px 60px rgba(0,0,0,.35) !important;
         }
 
-        .iconAnimationContainer svg{
-            width:60px !important;
-            height:60px !important;
+        svg.iconAnimationContainer{
+            width:80px !important;
+            height:80px !important;
+        }
+
+        svg.iconAnimationContainer path{
+            stroke-width:1.5 !important;
         }
 
     `;
@@ -110,11 +117,5 @@ setTimeout(() => {
 
 },2000);
 </script>
-    `;
-
-    document.head.appendChild(style);
-
-},2000);
-</script>
-
+``
 </body></html>
