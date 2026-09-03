@@ -93,7 +93,13 @@ setTimeout(() => {
     const style = document.createElement("style");
 
     style.innerHTML = `
-	
+
+    [data-cognigy-webchat-root] img{
+        width:80px !important;
+        height:80px !important;
+        object-fit:cover !important;
+    }
+
     [data-cognigy-webchat-root] button{
         width:120px !important;
         height:120px !important;
