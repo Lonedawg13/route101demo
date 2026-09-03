@@ -1,1 +1,35 @@
-<!doctype html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Launch the Henry-James Route101 chat demonstration."><meta name="theme-color" content="#071638"><title>Chat with Henry-James | Route101 Insurance AI</title><link rel="stylesheet" href="styles.css"></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="index.html"><span class="brand-title">Route101 Insurance AI</span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a href="index.html">Home</a><a href="voice.html">Voice agent</a><a class="active" href="chat.html">Chat demo</a></nav></div></header><main class="agent-main"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="agent-grid"><section class="info-panel"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div><div class="kicker">Messaging experience</div><h1>Chat with Henry‑James</h1><p>Type a message to explore a quick, guided insurance support experience.</p><div class="tips"><div class="tip">Ask a question in your own words</div><div class="tip">Follow the guided prompts</div><div class="tip">Do not enter genuine personal information</div></div><a class="btn switch-btn" href="voice.html">Try voice instead</a></section><section class="experience" data-agent="chat"><div class="empty"><div class="empty-avatar"><img src="henry-james-avatar.png" alt="Henry-James avatar"></div><h2>Connect Henry‑James</h2><p class="agent-message">Loading the live Cognigy chat experience.</p><span class="code-pill">Cognigy Webchat v3</span><div class="privacy">💬 This demonstration page does not collect information itself. Cognigy may apply its own privacy and data-handling terms.</div></div></section></div></div></main><footer class="site-footer"><div class="wrap footer-inner"><a class="brand" href="index.html"><span class="brand-title">Route101 Insurance AI</span></a><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Chat with Henry‑James">
+<meta name="theme-color" content="#071638">
+<title>Chat with Henry‑James | Route101 Insurance AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="index.html"><span class="brand-title">Route101 Insurance AI</span></a></div></header>
+<main class="agent-main">
+<div class="wrap">
+<a class="back" href="index.html">← Back to demo home</a>
+<div class="agent-grid">
+<section class="info-panel">
+<div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"></div>
+<div class="kicker">Messaging experience</div>
+<h1>Chat with Henry‑James</h1>
+<p>Your live Cognigy assistant is embedded below.</p>
+</section>
+<section class="experience">
+<div id="cognigy-webchat"></div>
+</section>
+</div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>Demonstration experience only.</p></div></footer>
+<script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script>
+<script>
+initWebchat('https://endpoint-trial.cognigy.ai/45eb8cc95901b9fed5ad94b3d3606852cf27db153ea485f7bff385759d2a6ae8');
+</script>
+</body>
+</html>
