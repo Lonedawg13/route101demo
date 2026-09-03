@@ -93,24 +93,15 @@ setTimeout(() => {
     const style = document.createElement("style");
 
     style.innerHTML = `
-
-        .webchat-toggle-button{
-            width:110px !important;
-            height:110px !important;
-            box-shadow:
-                0 0 0 16px rgba(237,23,123,.25),
-                0 25px 60px rgba(0,0,0,.35) !important;
+        [data-cognigy-webchat-root] svg {
+            width: 80px !important;
+            height: 80px !important;
         }
 
-        svg.iconAnimationContainer{
-            width:80px !important;
-            height:80px !important;
+        [data-cognigy-webchat-root] button {
+            width: 120px !important;
+            height: 120px !important;
         }
-
-        svg.iconAnimationContainer path{
-            stroke-width:1.5 !important;
-        }
-
     `;
 
     document.head.appendChild(style);
