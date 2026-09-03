@@ -6,4 +6,20 @@
     "status": "Open",
     "dateSubmitted": "2026-08-20"
   }
+  
+   {
+    "claimReference": "CLM002",
+    "policyNumber": "SJ123456",
+    "claimType": "Pet",
+    "status": "Open",
+    "dateSubmitted": "2026-08-20"
+  }
+  
+   {
+    "claimReference": "CLM003",
+    "policyNumber": "BW123456",
+    "claimType": "Car",
+    "status": "Open",
+    "dateSubmitted": "2026-08-20"
+  }
 ]

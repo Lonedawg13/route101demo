@@ -7,4 +7,13 @@
     "premium": "£555.00",
     "renewalDate": "2027-01-15"
   }
+  
+  {
+    "policyNumber": "BW123456",
+    "customerId": "CUST001",
+    "policyType": "Car",
+    "coverType": "Comprehensive",
+    "premium": "£623.00",
+    "renewalDate": "2027-01-15"
+  }
 ]
