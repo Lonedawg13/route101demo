@@ -93,20 +93,23 @@ setTimeout(() => {
     const style = document.createElement("style");
 
     style.innerHTML = `
-        [data-cognigy-webchat-root] svg {
-            width: 80px !important;
-            height: 80px !important;
-        }
 
-        [data-cognigy-webchat-root] button {
-            width: 60px !important;
-            height: 60px !important;
-        }
+    [data-cognigy-webchat-root] img{
+        width:80px !important;
+        height:80px !important;
+        object-fit:cover !important;
+    }
+
+    [data-cognigy-webchat-root] button{
+        width:120px !important;
+        height:120px !important;
+    }
+
     `;
 
     document.head.appendChild(style);
 
-},2000);
+},3000);
 </script>
 ``
 </body></html>
