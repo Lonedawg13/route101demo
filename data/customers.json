@@ -29,9 +29,9 @@
     "lastName": "W",
     "email": "ben.willmott@route101.com",
     "phoneNumber": "9876543210",
-    "address": "21 High Street, London l",
+    "address": "21 High Street, London",
 	"postcode": "ab12 3cd",
-    "policyNumber": "BS123456",
+    "policyNumber": "BW123456",
     "policyType": "Car",
     "renewalDate": "2027-06-01"
   }
