@@ -17,7 +17,7 @@ body{font-family:Arial,sans-serif;background:#071638;color:#fff;padding:40px}
 
 <script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script>
 <script>
-addEventListener("load", (event) => {if (window.initWebRTCWidget) {window.initWebRTCWidget("wss://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072/voiceGateway")}});
+addEventListener("load", (event) => {if (window.initWebRTCWidget) {window.initWebRTCWidget("https://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072")}});
 
 document.getElementById("testVoiceButton").addEventListener("click", () => {
   document.getElementById("status").textContent = "Test button clicked successfully. It deliberately does not call any undocumented Cognigy API.";
