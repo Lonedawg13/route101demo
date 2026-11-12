@@ -1,1 +1,133 @@
-<!doctype html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Talk to Henry-James, the Route101 Insurance AI voice agent."><meta name="theme-color" content="#071638"><title>Talk to Henry-James | Route101 Insurance AI</title><link rel="stylesheet" href="styles.css"></head><body data-page="voice"><header class="site-header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Route101 Insurance AI home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-copy"><span class="brand-title">Route101 Insurance AI</span><span class="brand-subtitle">POWERED by ROUTE101 Ltd.</span></span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a data-page="home" href="index.html">Home</a><a data-page="voice" href="voice.html">Voice agent</a><a data-page="chat" href="chat.html">Chat demo</a><a class="nav-cta" href="chat.html">Start a demo →</a></nav></div></header><main class="experience-page"><section class="experience-hero voice-theme"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="experience-shell"><section class="agent-profile"><div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div><span class="availability voice-badge">Live voice agent</span></div><div class="kicker">Conversational voice experience</div><h1>Talk naturally. Get clear answers.</h1><p>Speak with Henry-James directly in your browser. Select the Click to Call control, allow microphone access when prompted, and start the conversation.</p><div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="actions"><a class="btn btn-secondary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div></section><aside class="impact-panel voice-panel"><div class="impact-orb"></div><span class="section-label light">Live browser voice</span><h2>Speak directly with Henry-James.</h2><p>The voice experience connects through Cognigy Click To Call and uses your browser microphone. No telephone call is required.</p><div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div></aside></div></div></section></main><footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><strong>Route101 Insurance AI</strong><span>POWERED by ROUTE101 Ltd.</span></div><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer><script src="app.js"></script><script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script><script>addEventListener("load", () => { if (window.initWebRTCWidget) { window.initWebRTCWidget("wss://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072/voiceGateway"); } });</script></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Talk to Henry-James, the Route101 Insurance AI voice agent.">
+  <meta name="theme-color" content="#071638">
+  <title>Talk to Henry-James | Route101 Insurance AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .voice-call-zone{margin:22px 0 18px;max-width:470px}
+    .voice-call-card{position:relative;overflow:hidden;padding:3px;border-radius:18px;background:linear-gradient(120deg,#2368ff,#6b50e6 55%,#18b6d9);box-shadow:0 16px 36px rgba(34,82,190,.23)}
+    .voice-call-card::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-55px;top:-85px;background:rgba(255,255,255,.16);filter:blur(2px)}
+    .voice-call-button{position:relative;z-index:1;width:100%;min-height:78px;border:0;border-radius:15px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-align:left;color:#fff;background:linear-gradient(115deg,#153c99 0%,#235bd8 52%,#356eea 100%);cursor:pointer;font:inherit;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .voice-call-button:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(7,22,56,.3);filter:brightness(1.06)}
+    .voice-call-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .voice-call-button[disabled]{cursor:wait;opacity:.72;transform:none}
+    .voice-call-icon{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2)}
+    .voice-call-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .voice-call-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+    .voice-call-copy strong{font-size:1.02rem;line-height:1.2;letter-spacing:.01em}
+    .voice-call-copy span{font-size:.78rem;opacity:.82}
+    .voice-call-arrow{margin-left:auto;font-size:1.3rem;opacity:.75}
+    .voice-support{display:flex;align-items:center;gap:8px;margin:9px 5px 0;color:inherit;font-size:.76rem;opacity:.68}
+    .voice-support-dot{width:7px;height:7px;border-radius:50%;background:#27c883;box-shadow:0 0 0 4px rgba(39,200,131,.12)}
+    .voice-call-error{display:none;margin:10px 4px 0;color:#b42318;font-size:.8rem}
+    .voice-call-error.is-visible{display:block}
+    @media (max-width:600px){.voice-call-zone{max-width:none}.voice-call-button{min-height:72px;padding:12px 14px}.voice-call-icon{width:42px;height:42px;flex-basis:42px}}
+  </style>
+</head>
+<body data-page="voice">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Route101 Insurance AI home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <span class="brand-copy"><span class="brand-title">Route101 Insurance AI</span><span class="brand-subtitle">POWERED by ROUTE101 Ltd.</span></span>
+      </a>
+      <button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links"><a data-page="home" href="index.html">Home</a><a data-page="voice" href="voice.html">Voice agent</a><a data-page="chat" href="chat.html">Chat demo</a><a class="nav-cta" href="chat.html">Start a demo →</a></nav>
+    </div>
+  </header>
+
+  <main class="experience-page">
+    <section class="experience-hero voice-theme">
+      <div class="wrap">
+        <a class="back" href="index.html">← Back to demo home</a>
+        <div class="experience-shell">
+          <section class="agent-profile">
+            <div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div><span class="availability voice-badge">Live voice agent</span></div>
+            <div class="kicker">Conversational voice experience</div>
+            <h1>Talk naturally. Get clear answers.</h1>
+            <p>Speak with Henry-James directly in your browser. Start a secure browser voice session and allow microphone access when prompted.</p>
+
+            <div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+            <div class="voice-call-zone" aria-label="Start voice conversation">
+              <div class="voice-call-card">
+                <button id="voiceCallLauncher" class="voice-call-button" type="button" aria-label="Talk to Henry-James" disabled>
+                  <span class="voice-call-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/><path d="M8 22h8"/></svg></span>
+                  <span class="voice-call-copy"><strong>Talk to Henry-James</strong><span id="voiceCallSubtext">Preparing secure voice connection…</span></span>
+                  <span class="voice-call-arrow" aria-hidden="true">›</span>
+                </button>
+              </div>
+              <div class="voice-support"><span class="voice-support-dot"></span><span>Browser voice · No phone call required</span></div>
+              <div id="voiceCallError" class="voice-call-error" role="status">The voice service could not be loaded. Please refresh the page and try again.</div>
+            </div>
+
+            <div class="actions"><a class="btn btn-primary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div>
+          </section>
+
+          <aside class="impact-panel voice-panel">
+            <div class="impact-orb"></div><span class="section-label light">Channel-consistent by design</span>
+            <h2>A confident voice experience starts with controlled journeys.</h2>
+            <p>The same customer lookup, ID&amp;V, quote and claim-status logic can support a voice endpoint without redesigning the core business flows.</p>
+            <div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><strong>Route101 Insurance AI</strong><span>POWERED by ROUTE101 Ltd.</span></div><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer>
+
+  <script src="app.js"></script>
+  <script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script>
+  <script>
+    const COGNIGY_VOICE_ENDPOINT = "wss://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072/voiceGateway";
+    const launcher = document.getElementById("voiceCallLauncher");
+    const subtext = document.getElementById("voiceCallSubtext");
+    const error = document.getElementById("voiceCallError");
+    let cognigyWidget = null;
+
+    window.addEventListener("load", async () => {
+      if (typeof window.initWebRTCWidget !== "function") {
+        error.classList.add("is-visible");
+        subtext.textContent = "Voice service unavailable";
+        return;
+      }
+      try {
+        cognigyWidget = await window.initWebRTCWidget(COGNIGY_VOICE_ENDPOINT);
+        launcher.disabled = false;
+        subtext.textContent = "Start voice call";
+      } catch (e) {
+        console.error("Cognigy Click To Call initialization failed", e);
+        error.classList.add("is-visible");
+        subtext.textContent = "Voice service unavailable";
+      }
+    });
+
+    launcher.addEventListener("click", () => {
+      const candidates = [
+        cognigyWidget && cognigyWidget.startCall,
+        cognigyWidget && cognigyWidget.start,
+        cognigyWidget && cognigyWidget.open
+      ];
+      const action = candidates.find((fn) => typeof fn === "function");
+      if (action) {
+        action.call(cognigyWidget);
+        return;
+      }
+      const widgetButton = [...document.querySelectorAll("button")].find((button) =>
+        button !== launcher && /start a call|start call/i.test((button.textContent || "").trim())
+      );
+      if (widgetButton) {
+        widgetButton.click();
+        return;
+      }
+      error.textContent = "Voice is connected, but the call control could not be opened. Please use the Cognigy call control on this page.";
+      error.classList.add("is-visible");
+    });
+  </script>
+</body>
+</html>
