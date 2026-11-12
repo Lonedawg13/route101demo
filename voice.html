@@ -13,7 +13,63 @@
 .voice-load-note{font-size:14px;color:#53627c}
 @media(max-width:420px){#voiceLaunchArea .r101-idle-row{grid-template-columns:52px 44px minmax(0,1fr)!important;gap:10px!important;padding:12px!important}#voiceLaunchArea .r101-avatar{width:52px!important;height:52px!important;min-width:52px!important}#voiceLaunchArea .r101-name{font-size:15px!important}}
 </style>
-<style>body[data-page="voice"] .availability.voice-badge{display:none!important}body[data-page="voice"] .profile-top{justify-content:flex-start!important;background:transparent!important}#voiceLaunchArea .webrtc_widget_powered_by{display:none!important}</style></head><body data-page="voice"><header class="site-header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Route101 Insurance AI home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-copy"><span class="brand-title">Route101 Insurance AI</span><span class="brand-subtitle">POWERED by ROUTE101 Ltd.</span></span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a data-page="home" href="index.html">Home</a><a data-page="voice" href="voice.html">Voice agent</a><a data-page="chat" href="chat.html">Chat demo</a><a class="nav-cta" href="chat.html">Start a demo →</a></nav></div></header><main class="experience-page"><section class="experience-hero voice-theme"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="experience-shell"><section class="agent-profile"><div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div></div><div class="kicker">Conversational voice experience</div><h1>Talk naturally. Get clear answers.</h1><p>Henry‑James is designed around the same structured journeys across digital channels, creating a consistent experience from chat to voice.</p><div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div id="voiceLaunchArea"><p id="voiceLoadNote" class="voice-load-note" role="status">Loading voice control...</p></div><div class="actions"><a class="btn btn-primary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div></section><aside class="impact-panel voice-panel"><div class="impact-orb"></div><span class="section-label light">Channel-consistent by design</span><h2>A confident voice experience starts with controlled journeys.</h2><p>The same customer lookup, ID&amp;V, quote and claim-status logic can support a voice endpoint without redesigning the core business flows.</p><div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div></aside></div></div></section></main><footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><strong>Route101 Insurance AI</strong><span>POWERED by ROUTE101 Ltd.</span></div><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer><script src="app.js"></script>
+<style>body[data-page="voice"] .availability.voice-badge{display:none!important}body[data-page="voice"] .profile-top{justify-content:flex-start!important;background:transparent!important}#voiceLaunchArea .webrtc_widget_powered_by{display:none!important}</style>
+<style id="r101-active-call-controls">
+/* Presentation only: retain the widget's original buttons and call handlers. */
+#voiceLaunchArea .webrtc_widget_call_controls_container,
+#voiceLaunchArea .webrtc_widget_call_actions{
+ display:flex!important;flex-direction:row!important;align-items:center!important;
+ justify-content:flex-start!important;gap:14px!important;flex-wrap:wrap!important;
+ margin-top:16px!important;margin-bottom:12px!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button,
+#voiceLaunchArea .webrtc_widget_end_call_button{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ position:relative!important;inset:auto!important;
+ width:56px!important;height:56px!important;min-width:56px!important;min-height:56px!important;
+ flex:0 0 56px!important;box-sizing:border-box!important;
+ padding:0!important;margin:0!important;border:2px solid #fff!important;
+ border-radius:50%!important;cursor:pointer!important;
+ transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button{
+ background:linear-gradient(135deg,#16e2cd,#20d6ed)!important;
+ color:#073b49!important;box-shadow:0 7px 18px #09cdbb40!important;
+}
+#voiceLaunchArea .webrtc_widget_end_call_button{
+ background:linear-gradient(135deg,#ff4f70,#e62545)!important;
+ color:#fff!important;box-shadow:0 7px 18px #e6254540!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button svg,
+#voiceLaunchArea .webrtc_widget_end_call_button svg{
+ width:25px!important;height:25px!important;fill:currentColor!important;flex-shrink:0!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button:hover,
+#voiceLaunchArea .webrtc_widget_end_call_button:hover{
+ transform:translateY(-2px)!important;filter:brightness(1.07)!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button:focus-visible,
+#voiceLaunchArea .webrtc_widget_end_call_button:focus-visible{
+ outline:3px solid #704cff!important;outline-offset:4px!important;
+}
+#voiceLaunchArea .webrtc_widget_mute_button:disabled,
+#voiceLaunchArea .webrtc_widget_end_call_button:disabled{
+ opacity:.5!important;cursor:not-allowed!important;transform:none!important;
+}
+#voiceLaunchArea .webrtc_widget_call_duration{
+ display:inline-block!important;margin-left:12px!important;
+ padding:5px 10px!important;border-radius:20px!important;
+ background:#f0edff!important;color:#503a98!important;
+ font-size:14px!important;font-weight:650!important;font-variant-numeric:tabular-nums!important;
+}
+@media(prefers-reduced-motion:reduce){
+ #voiceLaunchArea .webrtc_widget_mute_button,
+ #voiceLaunchArea .webrtc_widget_end_call_button{transition:none!important}
+ #voiceLaunchArea .webrtc_widget_mute_button:hover,
+ #voiceLaunchArea .webrtc_widget_end_call_button:hover{transform:none!important}
+}
+</style>
+</head><body data-page="voice"><header class="site-header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Route101 Insurance AI home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-copy"><span class="brand-title">Route101 Insurance AI</span><span class="brand-subtitle">POWERED by ROUTE101 Ltd.</span></span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a data-page="home" href="index.html">Home</a><a data-page="voice" href="voice.html">Voice agent</a><a data-page="chat" href="chat.html">Chat demo</a><a class="nav-cta" href="chat.html">Start a demo →</a></nav></div></header><main class="experience-page"><section class="experience-hero voice-theme"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="experience-shell"><section class="agent-profile"><div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div></div><div class="kicker">Conversational voice experience</div><h1>Talk naturally. Get clear answers.</h1><p>Henry‑James is designed around the same structured journeys across digital channels, creating a consistent experience from chat to voice.</p><div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div id="voiceLaunchArea"><p id="voiceLoadNote" class="voice-load-note" role="status">Loading voice control...</p></div><div class="actions"><a class="btn btn-primary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div></section><aside class="impact-panel voice-panel"><div class="impact-orb"></div><span class="section-label light">Channel-consistent by design</span><h2>A confident voice experience starts with controlled journeys.</h2><p>The same customer lookup, ID&amp;V, quote and claim-status logic can support a voice endpoint without redesigning the core business flows.</p><div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div></aside></div></div></section></main><footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><strong>Route101 Insurance AI</strong><span>POWERED by ROUTE101 Ltd.</span></div><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer><script src="app.js"></script>
 <script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script>
 <script>
 window.addEventListener('load',function(){
