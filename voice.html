@@ -8,65 +8,63 @@
 <title>Talk to Henry-James | Route101 Insurance AI</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-  .voice-widget-slot{margin:24px 0 18px;max-width:520px;min-height:112px}
-  .voice-widget-loading{display:flex;align-items:center;gap:12px;padding:18px 20px;border:1px solid rgba(36,91,216,.16);border-radius:18px;background:linear-gradient(135deg,#f7faff,#eef4ff);color:#17305f;box-shadow:0 14px 34px rgba(7,22,56,.09)}
-  .voice-widget-loading-dot{width:12px;height:12px;border-radius:50%;background:#2866e8;box-shadow:0 0 0 7px rgba(40,102,232,.12);animation:voicePulse 1.4s ease-in-out infinite}
-  @keyframes voicePulse{50%{transform:scale(.72);opacity:.55}}
-  .voice-widget-error{display:none;padding:14px 16px;border-radius:12px;background:#fff2f0;color:#9d241b;font-size:.88rem}
-  .voice-widget-error.is-visible{display:block}
+/* Voice-page refinements */
+body[data-page="voice"] .profile-top{justify-content:flex-start}
+body[data-page="voice"] .availability.voice-badge{display:none!important}
 
-  /* Supported Cognigy widget override classes */
-  .voice-widget-slot .webrtc_widget_outer_wrapper{position:relative!important;inset:auto!important;width:100%!important;max-width:none!important;margin:0!important;z-index:3!important}
-  .voice-widget-slot .webrtc_widget_container{width:100%!important;max-width:none!important;min-height:0!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:20px!important;background:linear-gradient(135deg,#071638 0%,#123372 56%,#225ed0 100%)!important;box-shadow:0 20px 48px rgba(7,22,56,.24)!important;overflow:hidden!important;--webrtc-bg-color:#0b2150;--webrtc-text-color:#ffffff;--webrtc-primary-color:#7aa9ff;--webrtc-secondary-color:#d9e7ff;--webrtc-border-color:rgba(255,255,255,.18);--webrtc-avatar-bg-color:rgba(255,255,255,.12)}
-  .voice-widget-slot .webrtc_widget_content_container{padding:22px!important}
-  .voice-widget-slot .webrtc_widget_content_container_idle{min-height:0!important}
-  .voice-widget-slot .webrtc_widget_agent_name{font-size:1.15rem!important;font-weight:750!important;letter-spacing:-.01em!important;color:#fff!important}
-  .voice-widget-slot .webrtc_widget_tagline{color:rgba(255,255,255,.74)!important;font-size:.84rem!important}
-  .voice-widget-slot .webrtc_widget_content_call_button,
-  .voice-widget-slot .webrtc_widget_call_button{min-height:56px!important;border-radius:14px!important;background:linear-gradient(110deg,#2b6ef3,#7157e8)!important;color:#fff!important;font-weight:750!important;box-shadow:0 12px 28px rgba(18,49,122,.38)!important;transition:transform .2s ease,filter .2s ease!important}
-  .voice-widget-slot .webrtc_widget_content_call_button:hover,
-  .voice-widget-slot .webrtc_widget_call_button:hover{transform:translateY(-2px)!important;filter:brightness(1.08)!important}
-  .voice-widget-slot .webrtc_widget_powered_by{opacity:.62!important}
-  .voice-widget-slot .webrtc_widget_audio_wave{filter:saturate(1.2)!important}
-  .voice-widget-slot .webrtc_widget_transcript_wrapper{border-radius:14px!important}
-  @media(max-width:640px){.voice-widget-slot{max-width:none}.voice-widget-slot .webrtc_widget_content_container{padding:17px!important}}
+/* Give the real Cognigy widget a native Route101 treatment while retaining its supported controls. */
+body[data-page="voice"] .webrtc_widget_outer_wrapper{position:relative!important;inset:auto!important;width:auto!important;max-width:none!important;margin:18px 0 16px!important;z-index:4!important}
+body[data-page="voice"] .webrtc_widget_container{width:auto!important;min-width:0!important;max-width:420px!important;min-height:0!important;padding:0!important;border:0!important;border-radius:22px!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;--webrtc-bg-color:transparent;--webrtc-text-color:#071638;--webrtc-primary-color:#0bd6c4;--webrtc-secondary-color:#26e58c;--webrtc-border-color:transparent;--webrtc-avatar-bg-color:transparent}
+body[data-page="voice"] .webrtc_widget_content_stack,
+body[data-page="voice"] .webrtc_widget_content_container,
+body[data-page="voice"] .webrtc_widget_content_container_idle{min-height:0!important;padding:0!important;background:transparent!important;box-shadow:none!important}
+
+/* Make the Cognigy idle state feel like an avatar-led voice launcher, rather than a stock widget card. */
+body[data-page="voice"] .webrtc_widget_content{display:grid!important;grid-template-columns:90px 1fr!important;grid-template-rows:auto auto!important;column-gap:18px!important;align-items:center!important;padding:16px 18px!important;border:1px solid rgba(7,22,56,.09)!important;border-radius:22px!important;background:linear-gradient(135deg,#fff 0%,#f7fbff 55%,#eefcff 100%)!important;box-shadow:0 16px 38px rgba(7,22,56,.12)!important}
+body[data-page="voice"] .webrtc_widget_avatar,
+body[data-page="voice"] .webrtc_widget_avatar_default{grid-row:1 / span 2!important;width:84px!important;height:84px!important;border-radius:50%!important;border:3px solid #fff!important;box-shadow:0 8px 24px rgba(7,22,56,.18),0 0 0 3px rgba(11,214,196,.22)!important;overflow:hidden!important;background:linear-gradient(145deg,#071638,#3b177a)!important}
+body[data-page="voice"] .webrtc_widget_agent_name{grid-column:2!important;margin:0 0 5px!important;color:#071638!important;font-size:1.08rem!important;font-weight:800!important;letter-spacing:-.015em!important}
+body[data-page="voice"] .webrtc_widget_tagline{grid-column:2!important;margin:0!important;color:#5b6780!important;font-size:.82rem!important}
+
+/* Bright aqua/green phone action. */
+body[data-page="voice"] .webrtc_widget_content_call_button,
+body[data-page="voice"] .webrtc_widget_call_button{position:absolute!important;left:72px!important;top:70px!important;width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;padding:0!important;border:4px solid #fff!important;border-radius:50%!important;background:linear-gradient(135deg,#03d8c4 0%,#22df90 100%)!important;color:#07243c!important;box-shadow:0 8px 22px rgba(0,196,160,.38)!important;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;z-index:5!important}
+body[data-page="voice"] .webrtc_widget_content_call_button:hover,
+body[data-page="voice"] .webrtc_widget_call_button:hover{transform:translateY(-2px) scale(1.06)!important;box-shadow:0 12px 27px rgba(0,196,160,.48)!important;filter:brightness(1.04)!important}
+
+/* Keep the live-call controls attractive and usable once the call starts. */
+body[data-page="voice"] .webrtc_widget_content_container_calling{padding:18px!important;border-radius:22px!important;background:linear-gradient(135deg,#071638,#123a76)!important;box-shadow:0 18px 42px rgba(7,22,56,.22)!important;color:#fff!important}
+body[data-page="voice"] .webrtc_widget_call_controls_container{gap:12px!important}
+body[data-page="voice"] .webrtc_widget_mute_button{background:#e9fbf8!important;color:#063b44!important;border-radius:50%!important}
+body[data-page="voice"] .webrtc_widget_end_call_button{border-radius:50%!important;box-shadow:0 8px 20px rgba(170,25,35,.28)!important}
+body[data-page="voice"] .webrtc_widget_transcript_wrapper{border-radius:16px!important}
+body[data-page="voice"] .webrtc_widget_powered_by{font-size:.67rem!important;opacity:.38!important;margin-top:8px!important}
+
+@media(max-width:640px){
+ body[data-page="voice"] .webrtc_widget_container{max-width:100%!important}
+ body[data-page="voice"] .webrtc_widget_content{grid-template-columns:76px 1fr!important;column-gap:14px!important;padding:14px!important}
+ body[data-page="voice"] .webrtc_widget_avatar,body[data-page="voice"] .webrtc_widget_avatar_default{width:72px!important;height:72px!important}
+ body[data-page="voice"] .webrtc_widget_content_call_button,body[data-page="voice"] .webrtc_widget_call_button{left:58px!important;top:60px!important;width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important}
+}
 </style>
 </head>
 <body data-page="voice">
 <header class="site-header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Route101 Insurance AI home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-copy"><span class="brand-title">Route101 Insurance AI</span><span class="brand-subtitle">POWERED by ROUTE101 Ltd.</span></span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a data-page="home" href="index.html">Home</a><a data-page="voice" href="voice.html">Voice agent</a><a data-page="chat" href="chat.html">Chat demo</a><a class="nav-cta" href="chat.html">Start a demo →</a></nav></div></header>
-<main class="experience-page"><section class="experience-hero voice-theme"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="experience-shell"><section class="agent-profile"><div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div><span class="availability voice-badge">Live voice agent</span></div><div class="kicker">Conversational voice experience</div><h1>Talk naturally. Get clear answers.</h1><p>Speak with Henry-James directly in your browser. No phone call is required; simply allow microphone access when prompted.</p><div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div id="voiceWidgetSlot" class="voice-widget-slot" aria-live="polite"><div id="voiceWidgetLoading" class="voice-widget-loading"><span class="voice-widget-loading-dot"></span><div><strong>Preparing Henry-James</strong><br><small>Your secure browser voice experience is loading.</small></div></div><div id="voiceWidgetError" class="voice-widget-error">The voice experience could not be loaded. Please refresh the page and try again.</div></div>
-<div class="actions"><a class="btn btn-primary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div></section><aside class="impact-panel voice-panel"><div class="impact-orb"></div><span class="section-label light">Channel-consistent by design</span><h2>A confident voice experience starts with controlled journeys.</h2><p>The same customer lookup, ID&amp;V, quote and claim-status logic can support a voice endpoint without redesigning the core business flows.</p><div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div></aside></div></div></section></main>
+<main class="experience-page"><section class="experience-hero voice-theme"><div class="wrap"><a class="back" href="index.html">← Back to demo home</a><div class="experience-shell"><section class="agent-profile"><div class="profile-top"><div class="mini-person"><img src="henry-james-avatar.png" alt="Henry-James avatar"><span class="status"></span></div></div><div class="kicker">Conversational voice experience</div><h1>Talk naturally. Get clear answers.</h1><p>Henry-James is designed around the same structured journeys across digital channels, creating a consistent experience from chat to voice.</p><div class="voice-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div id="voiceWidgetAnchor"></div><div class="actions"><a class="btn btn-primary" href="chat.html">Use the live chat demo</a><a class="btn btn-secondary" href="index.html">Back to overview</a></div></section><aside class="impact-panel voice-panel"><div class="impact-orb"></div><span class="section-label light">Channel-consistent by design</span><h2>A confident voice experience starts with controlled journeys.</h2><p>The same customer lookup, ID&amp;V, quote and claim-status logic can support a voice endpoint without redesigning the core business flows.</p><div class="scenario-stack"><div><b>Customer identification</b><span>Policy and registered phone lookup</span></div><div><b>Secure verification</b><span>Postcode-based ID&amp;V journey</span></div><div><b>Insurance servicing</b><span>Quotes, claims and knowledge support</span></div><div><b>Human escalation</b><span>Context-rich adviser handover</span></div></div></aside></div></div></section></main>
 <footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><strong>Route101 Insurance AI</strong><span>POWERED by ROUTE101 Ltd.</span></div><p>Demonstration experience only. Please do not enter genuine policy, payment or personal information.</p></div></footer>
 <script src="app.js"></script>
 <script src="https://github.com/Cognigy/click-to-call-widget/releases/latest/download/webRTCWidget.js"></script>
 <script>
-  const voiceConfigUrl = "https://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072";
-  window.addEventListener("load", function () {
-    const slot = document.getElementById("voiceWidgetSlot");
-    const loading = document.getElementById("voiceWidgetLoading");
-    const error = document.getElementById("voiceWidgetError");
-    if (typeof window.initWebRTCWidget !== "function") {
-      loading.style.display = "none";
-      error.classList.add("is-visible");
-      return;
-    }
-    window.initWebRTCWidget(voiceConfigUrl).then(function () {
-      requestAnimationFrame(function () {
-        const widget = document.querySelector(".webrtc_widget_outer_wrapper");
-        if (widget) {
-          loading.remove();
-          slot.appendChild(widget);
-        } else {
-          loading.style.display = "none";
-          error.classList.add("is-visible");
-        }
-      });
-    }).catch(function (err) {
-      console.error("Cognigy Click To Call failed to initialise", err);
-      loading.style.display = "none";
-      error.classList.add("is-visible");
+addEventListener("load", () => {
+  if (!window.initWebRTCWidget) return;
+  window.initWebRTCWidget("https://endpoint-trial.cognigy.ai/f335f5191395b6067dc946f94f044b9d45d1b183bc4b63352115ec0895220072").then(() => {
+    requestAnimationFrame(() => {
+      const widget = document.querySelector(".webrtc_widget_outer_wrapper");
+      const anchor = document.getElementById("voiceWidgetAnchor");
+      if (widget && anchor) anchor.appendChild(widget);
     });
   });
+});
 </script>
-</body></html>
+</body>
+</html>
